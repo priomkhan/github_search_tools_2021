@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/userSearchFragment">
+
+    <fragment
+        android:id="@+id/userSearchFragment"
+        android:name="com.mskdev.githubsearchingtool.ui.main.fragments.usersearch.UserSearchFragment"
+        android:label="Search User"
+        tools:layout="@layout/user_search_fragment">
+        <action
+            android:id="@+id/action_userSearchFragment_to_userDetailsFragment"
+            app:destination="@id/userDetailsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/repositorySearchFragment"
+        android:name="com.mskdev.githubsearchingtool.ui.main.fragments.repositorysearch.RepositorySearchFragment"
+        android:label="Search Repository"
+        tools:layout="@layout/repository_search_fragment"/>
+
+    <fragment
+        android:id="@+id/userDetailsFragment"
+        android:name="com.mskdev.githubsearchingtool.ui.main.fragments.usersearch.details.UserDetailsFragment"
+        android:label="User Details"
+        tools:layout="@layout/fragment_user_details">
+        <argument
+            android:name="selectedUserItem"
+            app:argType="com.mskdev.githubsearchingtool.data.model.GitHubUser" />
+    </fragment>
+</navigation>

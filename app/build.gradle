@@ -1,0 +1,139 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'com.google.gms.google-services'
+    id 'kotlin-parcelize'
+    id 'androidx.navigation.safeargs.kotlin'
+}
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        applicationId "com.mskdev.githubsearchingtool"
+        minSdkVersion 28
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            debuggable false
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            debuggable true
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    buildFeatures {
+        dataBinding true
+    }
+}
+
+dependencies {
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:${kotlin_version}"
+    implementation 'androidx.core:core-ktx:1.5.0'
+    //**Do not update to vs1.3.0 as it crashes
+    implementation 'androidx.appcompat:appcompat:1.3.0'
+    implementation 'com.google.android.material:material:1.3.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.1'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1'
+
+    //Library to Parsing JSON using Moshi tool in Kotlin
+    def moshi_version = '1.12.0'
+    implementation "com.squareup.moshi:moshi-kotlin:$moshi_version"
+
+    implementation platform('com.google.firebase:firebase-bom:28.0.1')
+    implementation 'com.google.firebase:firebase-auth:21.0.1'
+    implementation 'com.google.firebase:firebase-analytics-ktx:19.0.0'
+
+    //Retrofit is a type-safe HTTP client for Android and Java.
+    // With Retrofit we can compose the HTTP connection easily through
+    // a simple expressive interface just like an api document.
+    def retrofit2_version = '2.9.0'
+    implementation "com.squareup.retrofit2:retrofit:$retrofit2_version"
+
+    // Retrofit and Moshi work together really well. And the manual work we had to do
+    // of creating an adapter when I parsed JSON content will be done automatically by Retrofit.
+    implementation "com.squareup.retrofit2:converter-moshi:$retrofit2_version"
+
+    //A coroutine is a concurrency design pattern that you can use on Android
+    // to simplify code that executes asynchronously.
+    //On Android, coroutines help to solve two primary problems:
+    //    Manage long-running tasks that might otherwise block the getData thread and cause your app to freeze.
+    //    Providing getData-safety, or safely calling network or disk operations from the getData thread.
+    def coroutines_version = "1.5.0"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version"
+
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.9.0'
+
+
+    // Android's recycler view component can display structure data, either as a list or a grid.
+    def recyclerview_version = "1.2.0"
+    implementation "androidx.recyclerview:recyclerview:$recyclerview_version"
+
+    //Use to load the images at the runtime
+    def glide_version = '4.12.0'
+    implementation "com.github.bumptech.glide:glide:$glide_version"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    kapt "com.github.bumptech.glide:compiler:$glide_version"
+
+    //Use SQLite database Room
+    def room_version = "2.3.0"
+
+    implementation "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+    // optional - Kotlin Extensions and Coroutines support for Room
+    implementation "androidx.room:room-ktx:$room_version"
+
+    // optional - RxJava support for Room
+    implementation "androidx.room:room-rxjava2:$room_version"
+
+    // logging
+    implementation 'com.jakewharton.timber:timber:4.7.1'
+
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'com.squareup.okhttp3:okhttp:5.0.0-alpha.2'
+
+    def nav_version = "2.3.5"
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
+
+    implementation 'com.google.android.material:material:1.3.0'
+
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+    //Security
+    implementation("androidx.security:security-crypto:1.0.0")
+    // For Identity Credential APIs
+    implementation("androidx.security:security-identity-credential:1.0.0-alpha02")
+
+
+
+}

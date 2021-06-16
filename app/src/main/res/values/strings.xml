@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Search Github</string>
+
+    <string name="login_banner_content_description">login banner</string>
+    <string name="logo_content_description">MSKDEV Logo</string>
+    <string name="email_hint">Email Id</string>
+    <string name="login_header">GITHUB LOGIN</string>
+    <string name="user_name_hint">User Name</string>
+    <string name="btn_login_title">Login</string>
+    <string name="title_user_search">Search User</string>
+    <string name="menu_action_settings">Settings</string>
+    <string name="menu_action_logout">Logout</string>
+    <string name="title_repository_search">Search Repository</string>
+    <string name="userImage">User Image</string>
+    <string name="fork_count_head">#Fork:</string>
+    <string name="star_count_head">#Star</string>
+    <string name="updated_on">Updated on %1$s </string>
+    <string name="user_blog">Website: %1$s </string>
+    <string name="join_on">Join: %1$s </string>
+    <string name="rg_header_short_by">Short By:</string>
+    <string name="rb_repositories">Repositories</string>
+    <string name="rb_best_match">Best Match</string>
+
+    <string name="best_match">best match</string>
+    <string name="followers">followers</string>
+    <string name="repositories">repositories</string>
+    <string name="profile_picture_title">Profile Picture</string>
+    <string name="encrypted_token">ENCRYPTED TOKEN</string>
+
+</resources>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<!--Recycler view lists and grids are frequently used to create a selectable interface,
+that is, a list of data items that the user can choose from. The recycler view doesn't
+automatically give the user a visual indication of selection status though, that's up to you.
+In order to implement a selectable color, you must create your own files. You could use simple
+colors as backgrounds, but you can create a more interesting appearance with xml based drawable
+and shape files.-->
+
+<!--
+
+ Now my first job will be to create a shape. The shape will have a fill and a color (White),
+ and it'll have a border. I'll change this file's root element name to shape, then within that
+ I'll add a solid child element, and I'll set the color attribute to pound f-f-f.
+ This is going to be the default background color, it'll be white. Next I'll add a border.
+  I'll do that with a stroke element. I'll set the width to 3dp, and the color to a custom
+  color of B1BCBE. This could be any color you like. And then, just to make this visually
+  interesting, I'll add a corner radius, using the corners element, and I'll set the radius to 10dp.
+   So that's the default color.
+
+
+-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#FFF" />
+    <stroke android:width="3dp" android:color="#B1BCBE"/>
+    <corners android:radius="10dp"/>
+
+</shape>
+
+<!-- Now I'll make a copy of this file to use as the shape that's displayed when the user
+presses an item. We will call it background_selected.xml -->

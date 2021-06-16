@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="repoItem"
+            type="com.mskdev.githubsearchingtool.data.model.RepositoryItem" />
+        <variable
+            name="itemClickListener"
+            type="com.mskdev.githubsearchingtool.ui.main.fragments.repositorysearch.RepositoryItemClickListener" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/repoLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/grid_item_background"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/repoImage"
+            android:layout_width="100dp"
+            android:layout_height="75dp"
+            android:layout_margin="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:contentDescription="@string/userImage"
+            android:scaleType="centerCrop"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            bind:imageUrl="@{repoItem.owner.avatarURL}"
+            tools:contentDescription="Repo Image"
+            tools:src="@drawable/github_logo" />
+
+        <TextView
+            android:id="@+id/tvRepoFullName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:textAlignment="textStart"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="#0269E6"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/repoImage"
+            app:layout_constraintTop_toTopOf="@+id/repoImage"
+            bind:fullName="@{repoItem.fullName}"
+            tools:text="Repo Name" />
+
+        <TextView
+            android:id="@+id/tvDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="8dp"
+            android:textAlignment="viewStart"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/tvTopics"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvStargazersCount"
+            bind:description="@{repoItem.description}"
+            tools:text="Description" />
+
+        <TextView
+            android:id="@+id/tvTopics"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:textAlignment="viewStart"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="#232323"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/tvUpdatedAt"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvDescription"
+            bind:topics="@{repoItem.topics}"
+            tools:text="Topics" />
+
+        <TextView
+            android:id="@+id/tvStargazersCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:drawablePadding="5dp"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="#2196F3"
+            android:textStyle="bold"
+            app:drawableLeftCompat="@drawable/ic_star"
+            app:layout_constraintStart_toEndOf="@+id/repoImage"
+            app:layout_constraintTop_toBottomOf="@+id/tvRepoFullName"
+            bind:stargazersCount="@{repoItem.stargazersCount}"
+            tools:text="0" />
+
+        <TextView
+            android:id="@+id/tvLanguage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="8dp"
+            android:drawablePadding="5dp"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="#2196F3"
+            android:textStyle="bold"
+            app:drawableLeftCompat="@drawable/ic_circle"
+            app:layout_constraintStart_toEndOf="@+id/tvStargazersCount"
+            app:layout_constraintTop_toTopOf="@+id/tvStargazersCount"
+            bind:language="@{repoItem.language}"
+            tools:text="0" />
+
+        <TextView
+            android:id="@+id/tvUpdatedAt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:textAlignment="textStart"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="#2196F3"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTopics"
+            bind:updatedAt="@{repoItem.updatedAt}"
+            tools:text="jan 01, 2021" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

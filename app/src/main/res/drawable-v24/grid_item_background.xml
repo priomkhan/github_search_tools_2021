@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--t starts with a selector element at the root. I'm going to add two items.
+ First I'll add the item for the color that will be displayed when the user is pressing,
+  or clicking on an item. I'll use an item element, I'll set the drawable attribute to the
+  background selected drawable, and then I'll add an attribute called state pressed equals true.
+  And that means, when the user is pressing on the item, show this background.
+
+   Next I'll add another item, and this is the default color, and I'll choose the simple
+   background element. It's important to declare these in exactly this order. The more specific
+   background first, the default at second.
+  -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@drawable/background_selected" android:state_pressed="true" />
+
+    <item android:drawable="@drawable/background" />
+
+</selector>

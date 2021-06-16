@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- The only change I need to make here is the fill color, and I'll change this to CCC,
+and that's a light gray. -->
+
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#CCC" />
+    <stroke android:width="3dp" android:color="#B1BCBE"/>
+    <corners android:radius="10dp"/>
+
+</shape>
+
+<!-- Next I need to create a drawable file (grid_item_background.xml) that uses these two
+files(background.xml and background_selected.xml). -->

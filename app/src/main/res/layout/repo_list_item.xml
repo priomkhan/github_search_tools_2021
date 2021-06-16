@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="repoItem"
+            type="com.mskdev.githubsearchingtool.data.model.UserRepo" />
+        <variable
+            name="itemClickListener"
+            type="com.mskdev.githubsearchingtool.ui.main.fragments.usersearch.details.UserDetailedRepoRecyclerAdapter.RepoItemListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/repoLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/grid_item_background"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="4dp">
+
+        <ImageView
+            android:id="@+id/repoImage"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_margin="8dp"
+            android:contentDescription="@string/userImage"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.7"
+            tools:contentDescription="Repo Image"
+            bind:imageUrl="@drawable/repo_logo"
+            tools:src="@drawable/repo_logo" />
+
+        <TextView
+            android:id="@+id/tvRepoFullName"
+            android:layout_width="259dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="8dp"
+            android:textAlignment="textStart"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            app:layout_constraintStart_toEndOf="@+id/repoImage"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Repo Name"
+            bind:header="@{repoItem.repoName}"/>
+
+        <TextView
+            android:id="@+id/tvDescription"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="8dp"
+            android:textAlignment="viewStart"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="#D53737"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/repoImage"
+            app:layout_constraintTop_toBottomOf="@+id/tvRepoFullName"
+            tools:text="@string/fork_count_head"
+            bind:header="@{@string/fork_count_head}"/>
+
+        <TextView
+            android:id="@+id/tvStargazersCount"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:textAlignment="textStart"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="#2196F3"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvDescription"
+            app:layout_constraintTop_toBottomOf="@+id/tvRepoFullName"
+            tools:text="0"
+            bind:forkCount="@{repoItem.forks_count}"/>
+
+        <TextView
+            android:id="@+id/tvTopics"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:textAlignment="viewStart"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="#D53737"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvStargazersCount"
+            app:layout_constraintTop_toBottomOf="@+id/tvRepoFullName"
+            tools:text="@string/star_count_head"
+            bind:header="@{@string/star_count_head}"/>
+
+        <TextView
+            android:id="@+id/tvLanguage"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:textAlignment="textStart"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="#2196F3"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvTopics"
+            app:layout_constraintTop_toBottomOf="@+id/tvRepoFullName"
+            app:layout_constraintVertical_bias="0.393"
+            tools:text="0"
+            bind:starCount="@{repoItem.stargazers_count}"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
